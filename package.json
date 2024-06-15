@@ -11,12 +11,15 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
     "@tauri-apps/api": "^1",
     "nuxt": "^3.12.1"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1",
+    "typescript": "^5.0.2",
     "vite": "^5.0.0",
-    "typescript": "^5.0.2"
+    "vite-plugin-vuetify": "^2.0.3",
+    "vuetify": "^3.6.9"
   }
 }
