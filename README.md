@@ -18,27 +18,42 @@ yarn install
 Start the development server on `http://localhost:1420`:
 
 ```bash
-# yarn
 yarn dev
 ```
 
 Locally preview production build:
 
 ```bash
-# yarn
 yarn preview
 ```
 
 ## Start TAURI
 
 ```bash
-# yarn
 yarn generate
 ```
 
 Start tauri
 
 ```bash
-# yarn
 yarn tauri dev
+```
+
+## build tauri
+
+build
+
+```bash
+yarn tauri build
+```
+
+for debug
+```bash
+yarn tauri build --debug
+```
+
+## analyze
+
+```bash
+yarn nuxt analyze
 ```
