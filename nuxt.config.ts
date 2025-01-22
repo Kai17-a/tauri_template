@@ -1,27 +1,22 @@
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+const host = process.env.TAURI_DEV_HOST;
 
 export default defineNuxtConfig({
+  compatibilityDate: "2025-01-22",
   devtools: { enabled: true },
-  srcDir: "src/",
   ssr: false,
   devServer: {
-    port: 1420
+    host: host || "localhost",
+    port: 1420,
   },
-  build: {
-    transpile: ['vuetify'],
-  },
-  modules: [
-    (_opetions, nuxt) => {
-      nuxt.hooks.hook('vite:extendConfig', (config) => {
-        config.plugins?.push(vuetify({ autoImport: true }))
-      })
-    },
-  ],
   vite: {
-    vue: {
-      template: {
-        transformAssetUrls,
+    clearScreen: false,
+    envPrefix: ["VITE_", "TAURI_"],
+    server: {
+      strictPort: true,
+      hmr: host ? { protocol: "ws", host, port: 1420 } : undefined,
+      watch: {
+        ignored: ["**/src-tauri/**"],
       },
     },
   },
-})
+});
