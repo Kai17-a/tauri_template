@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-01-22",
   devtools: { enabled: true },
   ssr: false,
+  srcDir: "./src",
   devServer: {
     host: host || "localhost",
     port: 1420,
