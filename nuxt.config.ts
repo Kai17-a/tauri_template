@@ -1,3 +1,5 @@
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+
 const host = process.env.TAURI_DEV_HOST;
 
 export default defineNuxtConfig({
@@ -19,5 +21,21 @@ export default defineNuxtConfig({
         ignored: ["**/src-tauri/**"],
       },
     },
+    vue: {
+      template: {
+        transformAssetUrls,
+      }
+    }
   },
+  build: {
+    transpile: ['vuetify'],
+  },
+  modules: [
+    (_options, nuxt) => {
+      nuxt.hooks.hook('vite:extendConfig', (config) => {
+        // @ts-expect-error
+        config.plugins.push(vuetify({ autoImport: true }))
+      })
+    },
+  ]
 });
